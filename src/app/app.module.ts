@@ -2,15 +2,59 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//materials
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatOptionModule} from '@angular/material/core';
+
+//components
+import { HomeComponent } from './pages/home/home.component';
+import { InventoryComponent } from './pages/inventory/inventory.component';
+import { CraftingComponent } from './pages/crafting/crafting.component';
+import { LocationsComponent } from './pages/locations/locations.component';
+import { HelpComponent } from './pages/help/help.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    InventoryComponent,
+    CraftingComponent,
+    LocationsComponent,
+    HelpComponent,
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatDividerModule,
+    MatSidenavModule,
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // the first initial component
 })
 export class AppModule { }

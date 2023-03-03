@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Cyrodiil';
+  src: url('../../../assets/fonts/cyrodiil/Cyrodiil.otf') format('truetype');
+}
+
+.home{
+  color: #ACFFC3;
+  padding: 2%;
+  padding-top: 9%;
+  padding-left: 9%;
+}
+
+.um-or{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.t1{
+  font-family: 'Ropa Sans', sans-serif;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.heading{
+  font-family: 'Cyrodiil', sans-serif;
+  font-size: 72px;
+  margin-top: 50px;
+}
+
+.t2{
+  font-family: 'Ropa Sans', sans-serif;
+  font-style: italic;
+  font-size: 24px;
+  margin-top: 50px;
+  line-height: 40px;
+}
+
+.home-button{
+  background: #2a2b29;
+  color: #ACFFC3;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+}

@@ -1,1 +1,62 @@
-<p>locations works!</p>
+<div class="locations">
+  <div class="header">
+    <button mat-raised-button class="str_bt">Storage Locations</button>
+    <button mat-raised-button class="fnd_bt" routerLink="/find">Find Ingredients</button>
+  </div>
+  <br>
+  <br>
+  <mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile [colspan]="2">
+      <div style="display: flex; flex-direction: column;">
+        <h2 style="font-family: Roboto; font-size: 50px; font-weight: 700;">Whiterun</h2>
+        <br>
+        <p style="font-family: Roboto; font-style: italic; line-height: 32px;">From the proud warriors of Jorrvaskr to the wise mages of Dragonsreach, the beating heart of Skyrim and one of the most storied and beloved cities in all of Tamriel. With its towering walls, bustling marketplaces, and grand castle, Whiterun exudes an air of power and majesty that is unmatched by any other city in the province.</p>
+        <button mat-button class="item_but">VIEW ITEMS IN WHITERUN</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <img src="../../../assets/locations/Whiterun.jpg">
+      <button>View Items</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <br>
+  <br>
+
+  <mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile [colspan]="2">
+      <div style="display: flex; flex-direction: column;">
+        <h2 style="font-family: Roboto; font-size: 50px; font-weight: 700;">Solitude</h2>
+        <br>
+        <p style="font-family: Roboto; font-style: italic; line-height: 32px;">Situated on the rugged northern coast of Skyrim, Solitude stands as a bastion of strength and stability amidst the wilds of the province. Its formidable walls and towering castle have withstood countless sieges and battles, earning it a well-deserved reputation as one of the most impregnable fortresses in all of Tamriel.</p>
+        <button mat-button class="item_but">VIEW ITEMS IN SOLITUDE</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <img src="../../../assets/locations/Solitude.jpg">
+      <button>View Items</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <br>
+  <br>
+
+  <mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile [colspan]="2">
+      <div style="display: flex; flex-direction: column;">
+        <h2 style="font-family: Roboto; font-size: 50px; font-weight: 700;">Dawnstar</h2>
+        <br>
+        <p style="font-family: Roboto; font-style: italic; line-height: 32px;">The sleepy yet charming town that lies nestled amidst the snowy peaks of northern Skyrim. From the imposing Dark Brotherhood Sanctuary to the mysterious Pale Lady's cave, there are countless secrets and treasures to uncover in and around this idyllic hamlet.</p>
+        <button mat-button class="item_but">VIEW ITEMS IN DAWNSTAR</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <img src="../../../assets/locations/Dawnstar.png">
+      <button>View Items</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+
+
+

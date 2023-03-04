@@ -7,6 +7,7 @@ import { CraftingComponent } from './pages/crafting/crafting.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FindComponent } from './pages/find/find.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'help',
     component: HelpComponent
+  },
+  {
+    path: 'find',
+    component: FindComponent
   },
   {
     path: '**',

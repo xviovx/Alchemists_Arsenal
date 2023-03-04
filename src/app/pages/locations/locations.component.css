@@ -1,0 +1,30 @@
+button{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+button:hover{
+  font-weight: 800;
+}
+
+.str_bt{
+  color: #2a2b29;
+  background: #ACFFC3;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+.locations{
+  padding: 2%;
+  overflow: auto;
+}
+
+
+
+

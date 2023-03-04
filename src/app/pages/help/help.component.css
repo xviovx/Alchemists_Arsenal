@@ -1,0 +1,12 @@
+.help{
+  text-align: center;
+}
+
+.help-heading{
+  font-family: 'Roboto';
+  font-size: 32px;
+  padding-top: 2%;
+  line-height: 50px;
+  font-weight: 900;
+  color: #ACFFC3;
+}

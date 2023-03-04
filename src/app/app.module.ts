@@ -26,6 +26,7 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FindComponent } from './pages/find/find.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AppRoutingModule } from './app-routing.module';
     CraftingComponent,
     LocationsComponent,
     HelpComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FindComponent
   ],
   imports: [
     BrowserModule,

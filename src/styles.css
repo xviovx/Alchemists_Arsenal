@@ -21,5 +21,47 @@ body{
   border-radius: 5px;
 }
 
+.crafting{
+  height: 100%;
+  background-image: url('assets/crafting_bg_2.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.inventory{
+  height: 100%;
+  background-image: url('assets/inv_bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.locations{
+  height: 100%;
+  background-image: url('assets/locations_bg_two.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.help{
+  height: 100%;
+  background-image: url('assets/help_bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.find{
+  height: 100%;
+  background-image: url('assets/locations/Find.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+
+
 
 

@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Cyrodiil';
+  src: url('../../../assets/fonts/cyrodiil/Cyrodiil.otf') format('truetype');
+}
+
+.not-found{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1{
+  font-family: 'Cyrodiil', sans-serif;
+  font-size: 102px;
+}
+
+h2{
+  font-family: 'Roboto', 'sans-serif';
+  font-style: italic;
+  margin-top: 10px;
+}
+
+button{
+  background: #2a2b29;
+  color: #ACFFC3;
+  padding: 15px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-family: 'Ropa Sans', sans-serif;
+}

@@ -1,12 +1,61 @@
-.help{
-  text-align: center;
+.help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.help-heading{
+.contact-form {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #1b1b1b;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form mat-form-field {
+  padding: 0;
   font-family: 'Roboto';
-  font-size: 32px;
-  padding-top: 2%;
-  line-height: 50px;
-  font-weight: 900;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: italic;
+}
+
+.contact-form p {
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-form mat-slide-toggle {
+  margin-top: 10px;
+}
+
+.contact-form span {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.contact-form button {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+}
+
+button{
+  background: #2a2b29;
   color: #ACFFC3;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
 }

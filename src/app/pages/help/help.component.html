@@ -1,11 +1,26 @@
 <div class="help">
-  <h1 class="help-heading">
-    Having trouble with the website?
-    <br>
-    Please reach out to our developers for assistance:
-  </h1>
-
-  <h2 class="help_email">
-    200277@virtualwindow.co.za
-  </h2>
+  <div class="contact-form-container">
+    <div class="contact-form">
+      <h2>Having trouble with the app?</h2>
+      <p>Fill out this form to reach out to our developers with your feedback.</p>
+      <mat-form-field color="accent">
+        <input matInput style="color: #AFFC98; font-weight: 500; border-radius: 0;" placeholder="Your name">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput style="color: #AFFC98; font-weight: 500; border-radius: 0;" placeholder="Your email">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <textarea matInput style="color: #AFFC98; font-weight: 500; border-radius: 0;" placeholder="Your message"></textarea>
+      </mat-form-field>
+      <mat-slide-toggle></mat-slide-toggle>
+      <span>Accept terms and conditions</span>
+      <button mat-raised-button>
+        Send
+      </button>
+    </div>
+    <!-- <div class="contact-image">
+      <img src="../../../assets/help_img.png" alt="Contact image">
+    </div> -->
+  </div>
 </div>
+

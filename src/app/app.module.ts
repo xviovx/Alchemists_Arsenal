@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 //materials
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -17,6 +18,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatOptionModule} from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 
 //components
 import { HomeComponent } from './pages/home/home.component';
@@ -27,6 +29,8 @@ import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FindComponent } from './pages/find/find.component';
+import { QuantityInputComponent } from './quantity-input/quantity-input.component';
+import { PotionComponent } from './pages/potion/potion.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { FindComponent } from './pages/find/find.component';
     LocationsComponent,
     HelpComponent,
     NotFoundComponent,
-    FindComponent
+    FindComponent,
+    QuantityInputComponent,
+    PotionComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,8 @@ import { FindComponent } from './pages/find/find.component';
     AppRoutingModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] // the first initial component

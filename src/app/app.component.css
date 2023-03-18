@@ -95,12 +95,13 @@ mat-sidenav-container{
   color: lightgray;
 }
 
+.locations{
+  margin-bottom: 150px;
+}
+
 mat-divider{
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.locations{
-  margin-bottom: 90px;
-}

@@ -1,13 +1,53 @@
 <div class="inventory">
-  <mat-form-field>
-    <mat-select class="inv-view" placeholder="Ingredients">
-      <mat-option>
-        Ingredients
-        <!-- {{ options.viewValue }} -->
-      </mat-option>
-      <mat-option>
-        Potions
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="header">
+    <button mat-raised-button class="inv_bt">Ingredients</button>
+    <button mat-raised-button class="pot_bt" routerLink="/potion">Potions</button>
+    <div class="search-container">
+      <mat-form-field appearance="outline" color="accent">
+        <input matInput placeholder="Search">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <mat-card *ngFor="let ingredient of ingredients" class="item-card" (mouseover)="ingredient.cardHovered = true"
+  (mouseleave)="ingredient.cardHovered = false">
+    <img mat-card-image [ngClass]="{'image-hovered': ingredient.cardHovered}" src="{{ingredient.image}}">
+    <div class="item-quantity">x{{ingredient.quantity}}</div>
+    <div class="edit-icon" *ngIf="ingredient.cardHovered" (click)="editItem(selectedIngredient)"><mat-icon>edit</mat-icon></div>
+  </mat-card>
+  </div>
+
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Ingredient</h2>
+        <span class="modal-close" (click)="closeModal()">&times;</span>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <select id="location" placeholder="Choose location" [(ngModel)]="selectedIngredient.location">
+            <option value="" disabled selected>Select location</option>
+            <option *ngFor="let location of locationOptions" [value]="location">{{ location }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <app-quantity-input [(quantity)]="selectedIngredient.quantity"></app-quantity-input>
+        </div>
+        <div class="form-group">
+          <label for="security-question" style="margin-top: 15px;">Security Question:</label>
+          <input type="text" placeholder="Name your first school" id="security-question" [(ngModel)]="selectedIngredient.securityQuestion">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" mat-button (click)="updateDetails()">UPDATE DETAILS</button>
+      </div>
+    </div>
+  </div>
+
+
 </div>

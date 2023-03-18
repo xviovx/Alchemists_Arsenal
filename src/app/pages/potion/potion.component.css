@@ -11,7 +11,7 @@ button:hover{
   font-weight: 800;
 }
 
-.inv_bt{
+.pot_bt{
   color: #2a2b29;
   background: #ACFFC3;
   padding: 25px;
@@ -102,7 +102,7 @@ button:hover{
   }
 
   .modal-content {
-    background: radial-gradient(#18241b, #66B67C);
+    background: radial-gradient(#25452e, #18241b);
   padding: 20px;
   border-radius: 5px;
   position: relative;
@@ -161,11 +161,21 @@ button:hover{
   margin-bottom: 20px;
   }
 
+  .modal-body p {
+    max-width: 400px;
+    font-family: 'Roboto';
+    color: white;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 35px;
+  }
+
   .modal-body label {
   font-size: 13px;
   font-weight: 400;
   margin-bottom: 10px;
   display: block;
+  font-family: 'Roboto';
   }
 
   .modal-body input {

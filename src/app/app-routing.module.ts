@@ -8,6 +8,7 @@ import { LocationsComponent } from './pages/locations/locations.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FindComponent } from './pages/find/find.component';
+import { PotionComponent } from './pages/potion/potion.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'find',
     component: FindComponent
+  },
+  {
+    path: 'potion',
+    component: PotionComponent
   },
   {
     path: '**',

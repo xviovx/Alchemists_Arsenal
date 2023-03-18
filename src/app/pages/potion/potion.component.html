@@ -1,0 +1,39 @@
+<div class="inventory">
+  <div class="header">
+    <button mat-raised-button class="inv_bt" routerLink="/inventory">Ingredients</button>
+    <button mat-raised-button class="pot_bt">Potions</button>
+    <div class="search-container">
+      <mat-form-field appearance="outline" color="accent">
+        <input matInput placeholder="Search">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <mat-card *ngFor="let potion of potions" class="item-card" (mouseover)="potion.cardHovered = true"
+  (mouseleave)="potion.cardHovered = false">
+    <img mat-card-image [ngClass]="{'image-hovered': potion.cardHovered}" src="{{potion.image}}">
+    <div class="item-quantity">x{{potion.quantity}}</div>
+    <div class="edit-icon" *ngIf="potion.cardHovered"><mat-icon>info</mat-icon></div>
+    <div class="edit-icon" *ngIf="potion.cardHovered" (click)="viewPotion(potion)"><mat-icon>info</mat-icon></div>
+  </mat-card>
+  </div>
+
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>{{ selectedPotion.name }}</h2>
+        <span class="modal-close" (click)="closeModal()">&times;</span>
+      </div>
+      <hr>
+      <div class="modal-body">
+        <div class="form-group">
+          <p>{{ selectedPotion.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

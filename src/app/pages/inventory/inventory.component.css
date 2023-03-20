@@ -20,6 +20,10 @@ button:hover{
   margin-right: 25px;
 }
 
+.pot_bt{
+  color: #ACFFC3;
+}
+
 .inventory{
   padding: 2%;
   overflow: auto;

@@ -11,6 +11,10 @@ button:hover{
   font-weight: 800;
 }
 
+.inv_bt{
+  color: #ACFFC3;
+}
+
 .pot_bt{
   color: #2a2b29;
   background: #ACFFC3;

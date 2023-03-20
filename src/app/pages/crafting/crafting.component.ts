@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./crafting.component.css']
 })
 export class CraftingComponent {
-
+  craft(): void {
+    // Add your crafting logic here
+  }
 }
 

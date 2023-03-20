@@ -1,3 +1,37 @@
 <div class="crafting">
+  <div class="header">
+    <select class="dropdown">
+      <option value="" disabled selected>Ingredient location</option>
+      <option value="Whiterun">Whiterun</option>
+      <option value="Solitude">Solitude</option>
+      <option value="Dawnstar">Dawnstar</option>
+    </select>
+  </div>
+
+  <div class="crafting-container">
+    <div class="potion-image">
+      <img src="../../../assets/potions/CureDisease.webp" alt="Potion Image">
+    </div>
+    <div class="crafting-details">
+      <div class="ingredient-list">
+        <div class="ingredient-item">
+          <img src="../../../assets/ingredients/Garlic.webp" width="50px" height="50px" alt="Ingredient 1">
+          <span class="quantity-indicator">x3</span>
+        </div>
+        <div class="ingredient-item">
+          <img src="../../../assets/ingredients/VampireDust.webp" width="50px" height="50px" alt="Ingredient 2">
+          <span class="quantity-indicator">x2</span>
+        </div>
+        <div class="ingredient-item">
+          <img src="../../../assets/ingredients/RiverBetty.webp" width="50px" height="50px" alt="Ingredient 3">
+          <span class="quantity-indicator">x1</span>
+        </div>
+      </div>
+      <div class="crafting-info">
+        <div class="potion-title">Potion of Cure Disease</div>
+        <button mat-raised-button color="primary" (click)="craft()" class="craft-btn">Craft</button>
+      </div>
+    </div>
+  </div>
 
 </div>

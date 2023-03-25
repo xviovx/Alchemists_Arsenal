@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 //materials
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -31,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FindComponent } from './pages/find/find.component';
 import { QuantityInputComponent } from './quantity-input/quantity-input.component';
 import { PotionComponent } from './pages/potion/potion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { PotionComponent } from './pages/potion/potion.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatSlideToggleModule,
     MatToolbarModule,
     MatCardModule,

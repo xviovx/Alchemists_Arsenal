@@ -227,3 +227,8 @@ button:hover{
   .form-group label{
     font-size: 13px;
   }
+
+  .red-text{
+    color: red;
+  }
+

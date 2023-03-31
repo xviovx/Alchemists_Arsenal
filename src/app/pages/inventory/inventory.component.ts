@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InventoryService } from '../../services/inventory.service';
 import { Item } from "../../item";
@@ -9,27 +10,15 @@ import { Item } from "../../item";
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
-export class InventoryComponent implements OnInit{
-  //static features
 
-  locationOptions = [
-    'Whiterun', 'Solitude', 'Dawnstar'
-  ]
+export class InventoryComponent implements OnInit{
 
   ingredients: Item[] = [];
 
-  // ingredients = [
-  //   { name: 'Skeever_Hide', location: 'Whiterun', quantity: 22, image: '../../../assets/ingredients/SkeeverHide.webp', cardHovered: false},
-  //   { name: 'Mudcrab_Chitin', location: 'Whiterun', quantity: 12, image: '../../../assets/ingredients/MudcrabChitin.webp', cardHovered: false},
-  //   { name: 'Vampire_Dust', location: 'Dawnstar', quantity: 2, image: '../../../assets/ingredients/VampireDust.webp', cardHovered: false},
-  //   { name: 'Grass_Pod', location: 'Solitude', quantity: 7, image: '../../../assets/ingredients/GrassPod.webp', cardHovered: false},
-  //   { name: 'River_Betty', location: 'Whiterun', quantity: 3, image: '../../../assets/ingredients/RiverBetty.webp', cardHovered: false},
-  //   { name: 'Spriggan_Sap', location: 'Dawnstar', quantity: 11, image: '../../../assets/ingredients/SprigganSap.webp', cardHovered: false},
-  //   { name: 'Garlic', location: 'Whiterun', quantity: 51, image: '../../../assets/ingredients/Garlic.webp', cardHovered: false}
-  // ]
+  locationOptions = ['Whiterun', 'Solitude', 'Dawnstar'];
 
   showModal = false;
-  selectedIngredient: { name: string, location: string, quantity: number, image: string, cardHovered: boolean, securityQuestion: string } = { name: '', location: '', quantity: 0, image: '', cardHovered: false, securityQuestion: '' };
+  selectedIngredient: { _id?: string, name: string, location: string, quantity: number, image: string, cardHovered: boolean } = { _id: '', name: '', location: '', quantity: 0, image: '', cardHovered: false};
 
   constructor(private inventoryService: InventoryService) {}
 
@@ -45,25 +34,51 @@ export class InventoryComponent implements OnInit{
     );
   }
 
-  editItem(ingredient: { name: string, location: string, quantity: number, image: string, cardHovered: boolean, securityQuestion: string }) {
-    this.showModal = true;
-    this.selectedIngredient = ingredient;
+  newAmountPlaceholder: number = 0
+
+  detectAmountChange(e: any) {
+    this.newAmountPlaceholder = +e.target.value;
   }
 
-  closeModal() {
-    this.showModal = false;
-  }
+  //probs this so come back
 
   updateDetails() {
-    // handle the update action here
+    if (!this.selectedIngredient._id) {
+      // handle error: _id is undefined
+      return;
+    }
+
+    // Call InventoryService to update ingredient quantity
+    this.inventoryService.updateItem(this.selectedIngredient._id, this.selectedIngredient.quantity)
+      .subscribe(updatedIngredient => {
+        // Update ingredient quantity in frontend
+        const index = this.ingredients.findIndex(ingredient => ingredient._id === updatedIngredient._id);
+        this.ingredients[index].quantity = updatedIngredient.quantity;
+
+        // Close modal
+        this.showModal = false;
+      });
+  }
+
+
+
+
+
+  editItem(ingredient: Item) {
+    if (ingredient._id) { // check if _id is defined
+      this.showModal = true;
+      this.selectedIngredient = ingredient;
+    }
+  }
+
+
+
+  closeModal() {
     this.showModal = false;
   }
 
   updateQuantity(quantity: number) {
     this.selectedIngredient.quantity = quantity;
   }
-
-  //fetch from actual database
-
 
 }

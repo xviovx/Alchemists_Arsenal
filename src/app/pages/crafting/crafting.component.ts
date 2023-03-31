@@ -9,5 +9,18 @@ export class CraftingComponent {
   craft(): void {
     // Add your crafting logic here
   }
+
+  onLocationSelect(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+    const dropdown = document.getElementById('locationDropdown');
+    if (dropdown?.classList) {
+      if (value !== '') {
+        dropdown.classList.add('selected');
+      } else {
+        dropdown.classList.remove('selected');
+      }
+    }
+  }
+
 }
 

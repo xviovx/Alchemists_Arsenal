@@ -1,11 +1,12 @@
 <div class="crafting">
   <div class="header">
-    <select class="dropdown">
-      <option value="" disabled selected>Ingredient location</option>
+    <select id="locationDropdown" class="dropdown" (change)="onLocationSelect($event)">
+      <option value="" disabled selected>Select location</option>
       <option value="Whiterun">Whiterun</option>
       <option value="Solitude">Solitude</option>
       <option value="Dawnstar">Dawnstar</option>
     </select>
+
   </div>
 
   <div class="crafting-container">

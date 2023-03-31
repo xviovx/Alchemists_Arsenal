@@ -1,15 +1,16 @@
 <div class="home">
-  <p class="t1">Welcome To The</p>
-  <h1 class="heading">Alchemist's Arsenal</h1>
-  <p class="t2">Master the craft of potions in this application to improve <br>your in-game knowledge and ability. </p>
+  <p class="t1" [@scaleUpAndFadeIn]="true">Welcome To The</p>
+  <h1 class="heading" [@scaleUpAndFadeIn]="true">Alchemist's Arsenal</h1>
+  <p class="t2" [@scaleUpAndFadeIn]>Master the craft of potions in this application to improve <br>your in-game knowledge and ability. </p>
 
   <br>
 
-  <button mat-button class="home-button" routerLink="/crafting">
+  <button mat-button class="home-button" [@buttonAppear]="buttonState" routerLink="/crafting">
     <span>BREW A POTION</span>
   </button>
   <span class="um-or">-or-</span>
-  <button mat-button class="home-button" routerLink="/inventory">
+  <button mat-button class="home-button" [@buttonAppear]="buttonState" routerLink="/inventory">
     <span>VIEW INVENTORY</span>
   </button>
+
 </div>

@@ -20,8 +20,8 @@ export class InventoryService {
     );
   }
 
-  updateItem(id: string, newQuantity: number): Observable<Item> {
-    return this.http.put<Item>(`${this.url}/${id}`, {quantity: newQuantity}).pipe(
+  updateItem(id: string, newQuantity: number, newLocation: string): Observable<Item> {
+    return this.http.put<Item>(`${this.url}/${id}`, {quantity: newQuantity, location: newLocation}).pipe(
       catchError(this.handleError)
     );
   }

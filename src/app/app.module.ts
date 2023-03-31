@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FilterPipe } from './filter.pipe';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,7 +53,8 @@ import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/da
     PotionComponent,
     WhiterunItemsComponent,
     SolitudeItemsComponent,
-    DawnstarItemsComponent
+    DawnstarItemsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/da
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent] // the first initial component

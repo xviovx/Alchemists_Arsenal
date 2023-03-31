@@ -4,14 +4,14 @@
     <button mat-raised-button class="pot_bt" routerLink="/potion">Potions</button>
     <div class="search-container">
       <mat-form-field appearance="outline" color="accent">
-        <input matInput placeholder="Search">
+        <input matInput placeholder="Search" [(ngModel)]="searchText">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
   </div>
 
   <div class="card-container">
-    <mat-card *ngFor="let ingredient of ingredients" class="item-card"
+    <mat-card *ngFor="let ingredient of ingredients | filter: searchText" class="item-card"
       (mouseover)="ingredient.cardHovered = true"
       (mouseleave)="ingredient.cardHovered = false" (click)="selectedIngredient = ingredient">
       <img mat-card-image [ngClass]="{'image-hovered': ingredient.cardHovered}" src="{{ingredient.image}}">
@@ -20,35 +20,6 @@
     </mat-card>
   </div>
 
-  <!-- <div class="modal" *ngIf="showModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Edit Ingredient</h2>
-        <span class="modal-close" (click)="closeModal()">&times;</span>
-      </div>
-      <hr>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="location">Location:</label>
-          <select id="location" placeholder="Choose location" [(ngModel)]="selectedIngredient.location">
-            <option value="" disabled selected>Select location</option>
-            <option *ngFor="let location of locationOptions" [value]="location">{{ location }}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="quantity">Quantity:</label>
-          <app-quantity-input [(quantity)]="selectedIngredient.quantity"></app-quantity-input>
-        </div>
-        <div class="form-group">
-          <label for="security-question" style="margin-top: 15px;">Security Question:</label>
-          <input type="text" placeholder="Name your first school" id="security-question">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" mat-button (click)="updateDetails()">UPDATE DETAILS</button>
-      </div>
-    </div>
-  </div> -->
 
   <div class="modal" *ngIf="showModal">
     <div class="modal-content">
@@ -63,6 +34,12 @@
           <input type="number" class="form-control" id="quantity" [(ngModel)]="selectedQuantity">
         </div>
         <div class="form-group">
+          <label for="location">Location:</label>
+          <select class="form-control" id="location" [(ngModel)]="selectedLocation">
+            <option *ngFor="let option of locationOptions" [value]="option">{{option}}</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="security-question">Security Question: </label>
           <input type="text" id="security-question" name="security-question" placeholder="Name your first school">
         </div>
@@ -72,6 +49,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

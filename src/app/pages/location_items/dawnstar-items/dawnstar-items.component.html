@@ -1,0 +1,13 @@
+<div class="dawnstar_items">
+  <h1>{{ getDawnstarItemCount() }} items in Dawnstar</h1>
+
+  <div class="card-container">
+    <mat-card *ngFor="let ingredient of ingredients" class="item-card"
+      (mouseover)="ingredient.cardHovered = true"
+      (mouseleave)="ingredient.cardHovered = false" (click)="onCardClick()">
+      <img mat-card-image [ngClass]="{'image-hovered': ingredient.cardHovered}" src="{{ingredient.image}}">
+      <div class="item-quantity" [ngClass]="{'red-text': ingredient.quantity === 0}">x{{ingredient.quantity}}</div>
+      <div class="edit-icon" *ngIf="ingredient.cardHovered"><mat-icon>edit</mat-icon></div>
+    </mat-card>
+  </div>
+</div>

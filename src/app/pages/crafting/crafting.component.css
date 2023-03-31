@@ -7,9 +7,9 @@
   appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-  color: #ACFFC3;
-  background: #2a2b29;
-  padding: 15px;
+  color: #2a2b29;
+  background: #ACFFC3;
+  padding: 17px;
   border-radius: 25px;
   font-family: 'Ropa Sans', sans-serif;
   font-size: 15px;
@@ -18,7 +18,7 @@
 
 .dropdown:hover{
   cursor: pointer;
-  background: #1f201f;
+  font-weight: 800;
 }
 
 .dropdown::-ms-expand,

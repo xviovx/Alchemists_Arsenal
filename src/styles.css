@@ -69,6 +69,30 @@ body{
   border-radius: 5px;
 }
 
+.whiterun_items{
+  height: 100%;
+  background-image: url('assets/locations/Whiterun_bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.solitude_items{
+  height: 100%;
+  background-image: url('assets/locations/Solitude_bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.dawnstar_items{
+  height: 100%;
+  background-image: url('assets/locations/Dawnstar_bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
 
 
 

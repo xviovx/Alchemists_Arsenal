@@ -19,7 +19,7 @@ export class InventoryComponent implements OnInit{
 
   showModal = false;
   selectedIngredient: { _id?: string, name: string, location: string, quantity: number, image: string, cardHovered: boolean } = { _id: '', name: '', location: '', quantity: 0, image: '', cardHovered: false};
-
+  selectedQuantity = 0;
   constructor(private inventoryService: InventoryService) {}
 
   ngOnInit() {
@@ -40,16 +40,20 @@ export class InventoryComponent implements OnInit{
     this.newAmountPlaceholder = +e.target.value;
   }
 
-  //probs this so come back
-
   updateDetails() {
     if (!this.selectedIngredient._id) {
       // handle error: _id is undefined
       return;
     }
 
+    const securityQuestionAnswer = (<HTMLInputElement>document.getElementById("security-question")).value;
+    if (securityQuestionAnswer.toLowerCase() !== "cornwall") {
+      alert("Incorrect answer. Please try again");
+      return;
+    }
+
     // Call InventoryService to update ingredient quantity
-    this.inventoryService.updateItem(this.selectedIngredient._id, this.selectedIngredient.quantity)
+    this.inventoryService.updateItem(this.selectedIngredient._id, this.selectedQuantity)
       .subscribe(updatedIngredient => {
         // Update ingredient quantity in frontend
         const index = this.ingredients.findIndex(ingredient => ingredient._id === updatedIngredient._id);
@@ -63,22 +67,20 @@ export class InventoryComponent implements OnInit{
 
 
 
-
   editItem(ingredient: Item) {
     if (ingredient._id) { // check if _id is defined
       this.showModal = true;
       this.selectedIngredient = ingredient;
+      this.selectedQuantity = ingredient.quantity;
     }
   }
-
-
 
   closeModal() {
     this.showModal = false;
   }
 
   updateQuantity(quantity: number) {
-    this.selectedIngredient.quantity = quantity;
+    this.selectedQuantity = quantity;
   }
 
 }

@@ -33,6 +33,9 @@ import { FindComponent } from './pages/find/find.component';
 import { QuantityInputComponent } from './quantity-input/quantity-input.component';
 import { PotionComponent } from './pages/potion/potion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WhiterunItemsComponent } from './pages/location_items/whiterun-items/whiterun-items.component';
+import { SolitudeItemsComponent } from './pages/location_items/solitude-items/solitude-items.component';
+import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/dawnstar-items.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     FindComponent,
     QuantityInputComponent,
-    PotionComponent
+    PotionComponent,
+    WhiterunItemsComponent,
+    SolitudeItemsComponent,
+    DawnstarItemsComponent
   ],
   imports: [
     BrowserModule,

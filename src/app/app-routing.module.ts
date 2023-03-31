@@ -9,6 +9,9 @@ import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FindComponent } from './pages/find/find.component';
 import { PotionComponent } from './pages/potion/potion.component';
+import { WhiterunItemsComponent } from './pages/location_items/whiterun-items/whiterun-items.component';
+import { SolitudeItemsComponent } from './pages/location_items/solitude-items/solitude-items.component';
+import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/dawnstar-items.component';
 
 const routes: Routes = [
   {
@@ -31,6 +34,18 @@ const routes: Routes = [
   {
     path: 'locations',
     component: LocationsComponent
+  },
+  {
+    path: 'whiterun_items',
+    component: WhiterunItemsComponent
+  },
+  {
+    path: 'solitude_items',
+    component: SolitudeItemsComponent
+  },
+  {
+    path: 'dawnstar_items',
+    component: DawnstarItemsComponent
   },
   {
     path: 'help',

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { catchError, mergeMap } from 'rxjs/operators';
 import { Potion } from '../potion';
 
 @Injectable({
@@ -18,6 +19,24 @@ export class PotionService {
     return this.http.get<Potion[]>(this.url).pipe(
       catchError(this.handleError)
     );
+  }
+
+  addPotion(potion: Potion): Observable<Potion> {
+    const index = this.items.findIndex((p) => p.name === potion.name);
+    if (index > -1) {
+      // Potion already exists, update quantity
+      const existingPotion = this.items[index];
+      existingPotion.quantity += potion.quantity;
+      return this.http.put<Potion>(`${this.url}/${existingPotion._id}`, existingPotion).pipe(
+        catchError(this.handleError)
+      );
+    } else {
+      // Add new potion
+      return this.http.post<Potion>(this.url, potion).pipe(
+        catchError(this.handleError),
+        map((response: any): Potion => response as Potion)
+      );
+    }
   }
 
   private handleError(error: HttpErrorResponse) {

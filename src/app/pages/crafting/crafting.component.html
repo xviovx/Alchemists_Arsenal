@@ -1,53 +1,31 @@
 <div class="crafting">
   <div class="header">
-    <select id="locationDropdown" class="dropdown" (change)="onLocationSelect($event)">
+    <!-- <select id="locationDropdown" class="dropdown" (change)="onLocationSelect($event)">
       <option value="" disabled selected>Select location</option>
       <option value="Whiterun">Whiterun</option>
       <option value="Solitude">Solitude</option>
       <option value="Dawnstar">Dawnstar</option>
-    </select>
+    </select> -->
 
   </div>
 
-  <div class="craft-item">
-    <img src="../../../assets/ingredients/Garlic.webp" width="50" height="50"/>
-    <h2>Recipe Name</h2>
-    <h5>Description of recipe</h5>
-
-    <h6>Ingredients:</h6>
-    <ul>
-        <li>0 Ingredients (0 available)</li>
-    </ul>
-    <div class="craft-button">
-        <p>Current Amount: 0</p>
-        <button class="update-btn" mat-flat-button color="accent">Craft</button>
-    </div>
-</div>
-
-  <!-- <div class="crafting-container"> THE MAIN CRAFTING CONTAINER I WILL USE
+  <div *ngFor="let recipe of recipes" class="crafting-container">
     <div class="potion-image">
-      <img src="../../../assets/potions/CureDisease.webp" alt="Potion Image">
+      <img [src]="recipe.image" alt="Potion Image">
+      <span>{{ recipe.amount }}</span>
     </div>
     <div class="crafting-details">
       <div class="ingredient-list">
-        <div class="ingredient-item">
-          <img src="../../../assets/ingredients/Garlic.webp" width="50px" height="50px" alt="Ingredient 1">
-          <span class="quantity-indicator">x3</span>
-        </div>
-        <div class="ingredient-item">
-          <img src="../../../assets/ingredients/VampireDust.webp" width="50px" height="50px" alt="Ingredient 2">
-          <span class="quantity-indicator">x2</span>
-        </div>
-        <div class="ingredient-item">
-          <img src="../../../assets/ingredients/RiverBetty.webp" width="50px" height="50px" alt="Ingredient 3">
-          <span class="quantity-indicator">x1</span>
+        <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item">
+          <img [src]=" ingredient.inventoryId.image " width="50px" height="50px" alt="Ingredient 1">
+          <span [ngClass]="{ 'quantity-indicator': true, 'zero-quantity': ingredient.inventoryId.quantity === 0 }">x{{ ingredient.inventoryId.quantity }}</span>
         </div>
       </div>
       <div class="crafting-info">
-        <div class="potion-title">Potion of Cure Disease</div>
-        <button mat-raised-button color="primary" (click)="craft()" class="craft-btn">Craft</button>
+        <div class="potion-title">{{ recipe.name }}</div>
+        <button mat-raised-button color="primary" (click)="craft(recipe)" class="craft-btn">Craft</button>
       </div>
     </div>
-  </div> -->
+  </div>
 
 </div>

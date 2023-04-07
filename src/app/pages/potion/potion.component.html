@@ -4,14 +4,14 @@
     <button mat-raised-button class="pot_bt">Potions</button>
     <div class="search-container">
       <mat-form-field appearance="outline" color="accent">
-        <input matInput placeholder="Search">
+        <input matInput placeholder="Search" [(ngModel)]="searchText">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
   </div>
 
   <div class="card-container">
-    <mat-card *ngFor="let potion of potions" class="item-card" (mouseover)="potion.cardHovered = true"
+    <mat-card *ngFor="let potion of potions | filter: searchText" class="item-card" (mouseover)="potion.cardHovered = true"
   (mouseleave)="potion.cardHovered = false">
     <img mat-card-image [ngClass]="{'image-hovered': potion.cardHovered}" src="{{potion.image}}">
     <div class="item-quantity">x{{potion.quantity}}</div>

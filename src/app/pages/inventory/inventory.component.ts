@@ -50,7 +50,7 @@ export class InventoryComponent implements OnInit{
     }
 
     const securityQuestionAnswer = (<HTMLInputElement>document.getElementById("security-question")).value;
-    if (securityQuestionAnswer.toLowerCase() !== "cornwall") {
+    if (securityQuestionAnswer.toLowerCase() !== "alduin") {
       alert("Incorrect answer. Please try again");
       return;
     }

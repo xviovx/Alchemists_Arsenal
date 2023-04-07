@@ -151,3 +151,26 @@ mat-button {
     margin-bottom: 20px;
   }
 }
+
+/*DELETE LATER*/
+.craft-containers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.craft-item {
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+  min-width: 250px;
+  margin: 10px
+}
+
+.craft-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}

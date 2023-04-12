@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" [@scaleUpAndFadeIn]="true">
     <mat-card *ngFor="let ingredient of ingredients | filter: searchText" class="item-card"
       (mouseover)="ingredient.cardHovered = true"
       (mouseleave)="ingredient.cardHovered = false" (click)="selectedIngredient = ingredient">

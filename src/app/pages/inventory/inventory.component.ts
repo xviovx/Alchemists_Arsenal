@@ -4,14 +4,34 @@ import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InventoryService } from '../../services/inventory.service';
 import { Item } from "../../item";
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.css']
+  styleUrls: ['./inventory.component.css'],
+  animations: [
+    trigger('scaleUpAndFadeIn', [
+      state('void', style({ transform: 'scale(0)', opacity: 0 })),
+      transition('void => *', [
+        animate('0.5s ease-in-out', keyframes([
+          style({ transform: 'scale(0)', opacity: 0, offset: 0 }),
+          style({ transform: 'scale(1.2)', offset: 0.3 }),
+          style({ transform: 'scale(1)', opacity: 1, offset: 1.0 }),
+        ]))
+      ])
+    ])
+  ]
 })
 
 export class InventoryComponent implements OnInit{
+  isLoaded = false;
+  buttonState = 'hidden';
+
+  ngAfterViewInit() {
+    this.isLoaded = true;
+    this.buttonState = 'visible';
+  }
 
   ingredients: Item[] = [];
   filteredIngredients: Item[] = [];

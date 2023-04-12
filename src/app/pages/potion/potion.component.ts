@@ -44,4 +44,19 @@ export class PotionComponent implements OnInit {
       return potion.name.toLowerCase().includes(this.searchText.toLowerCase());
     });
   }
+
+  addPotion(form: NgForm) {
+    const newPotion: Potion = form.value;
+    this.potionService.addPotion(newPotion)
+      .subscribe(
+        (potion: Potion) => {
+          // If the potion was added successfully, update the UI
+          this.potions.push(potion);
+          this.filteredPotions = this.potions;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
 }

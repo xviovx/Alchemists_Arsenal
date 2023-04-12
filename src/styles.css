@@ -93,6 +93,32 @@ body{
   border-radius: 5px;
 }
 
+.inventory::-webkit-scrollbar {
+  display: none;
+}
+
+.inventory {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.inventory::-ms-scrollbar {
+  display: none;
+}
+
+.crafting::-webkit-scrollbar {
+  display: none;
+}
+
+.crafting {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.crafting::-ms-scrollbar {
+  display: none;
+}
+
 
 
 

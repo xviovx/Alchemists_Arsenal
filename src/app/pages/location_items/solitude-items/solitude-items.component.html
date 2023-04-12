@@ -7,7 +7,7 @@
       (mouseleave)="ingredient.cardHovered = false" (click)="onCardClick()">
       <img mat-card-image [ngClass]="{'image-hovered': ingredient.cardHovered}" src="{{ingredient.image}}">
       <div class="item-quantity" [ngClass]="{'red-text': ingredient.quantity === 0}">x{{ingredient.quantity}}</div>
-      <div class="edit-icon" *ngIf="ingredient.cardHovered"><mat-icon>edit</mat-icon></div>
+      <!-- <div class="edit-icon" *ngIf="ingredient.cardHovered"><mat-icon>edit</mat-icon></div> -->
     </mat-card>
   </div>
 </div>

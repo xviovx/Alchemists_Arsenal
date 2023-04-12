@@ -9,12 +9,26 @@ import { Item } from '../../item';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { PotionService } from 'src/app/services/potion.service';
 import { Potion } from '../../potion';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-crafting',
   templateUrl: './crafting.component.html',
-  styleUrls: ['./crafting.component.css']
+  styleUrls: ['./crafting.component.css'],
+  animations: [
+    trigger('scaleUpAndFadeIn', [
+      state('void', style({ transform: 'scale(0)', opacity: 0 })),
+      transition('void => *', [
+        animate('0.5s ease-in-out', keyframes([
+          style({ transform: 'scale(0)', opacity: 0, offset: 0 }),
+          style({ transform: 'scale(1.2)', offset: 0.3 }),
+          style({ transform: 'scale(1)', opacity: 1, offset: 1.0 }),
+        ]))
+      ])
+    ])
+  ]
 })
+
 export class CraftingComponent implements OnInit {
   recipes: Recipe[] = [];
   // selectedLocation: string;
@@ -76,13 +90,13 @@ export class CraftingComponent implements OnInit {
             cardHovered: false
           };
           this.potionService.addPotion(newPotion).subscribe(
-            (createdPotion: Potion) => {
-              console.log('Potion created:', createdPotion);
+            (createdOrUpdatedPotion: Potion) => {
+              console.log('Potion created/updated:', createdOrUpdatedPotion);
               alert('Crafted potion successfully!');
             },
             (error) => {
-              console.log('Error creating potion:', error);
-              alert('Failed to create potion.');
+              console.log('Error creating/updating potion:', error);
+              alert('Failed to craft potion.');
             }
           );
         },
@@ -95,6 +109,9 @@ export class CraftingComponent implements OnInit {
       alert('Insufficient ingredients to craft potion!');
     }
   }
+
+
+
 
 
 

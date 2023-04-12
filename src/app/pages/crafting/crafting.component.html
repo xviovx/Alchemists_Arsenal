@@ -9,7 +9,7 @@
 
   </div>
 
-  <div *ngFor="let recipe of recipes" class="crafting-container">
+  <div *ngFor="let recipe of recipes" class="crafting-container" [@scaleUpAndFadeIn]="true">
     <div class="potion-image">
       <img [src]="recipe.image" alt="Potion Image">
       <span>{{ recipe.amount }}</span>

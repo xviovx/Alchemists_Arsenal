@@ -14,11 +14,11 @@ dotenv.config();
 
 const app: Express = express();
 
-//middleware 
+//middleware
 app.use(cors()); // avoid cors error
-app.use(express.json()); // get our params from body 
+app.use(express.json()); // get our params from body
 
-//declare my variables 
+//declare my variables
 const port = process.env.PORT || 3000;
 const clusterUrl = process.env.CLUSTER;
 
@@ -49,11 +49,11 @@ app.post("/inventory", async (req, res) => {
 app.put("/inventory/:id", async (req, res) => {
     const { id } = req.params;
     const { quantity, location } = req.body;
-  
+
     const inventory = await InventoryModel.findByIdAndUpdate(id, {quantity, location}, {new: true});
-  
+
     res.send(inventory);
-  })  
+  })
 
 //not sure if I'll need the delete functionality but lets add it anyway incase
 app.delete("/inventory/:id", async (req, res) => {
@@ -91,9 +91,9 @@ app.put("/potion/:id", async (req, res) => {
   const potion = await PotionModel.findByIdAndUpdate(id, {quantity}, {new: true});
 
   res.send(potion);
-})  
+})
 
-//delete a recipe 
+//delete a recipe
 app.delete("/recipes/:id", async (req, res) => {
     const { id } = req.params;
 
@@ -107,16 +107,16 @@ app.delete("/recipes/:id", async (req, res) => {
 app.post('/recipes', async (req, res) => {
     try {
       const { name, image, description, amount, ingredients } = req.body;
-  
+
       const recipe = await RecipeModel.create({ name, image, description, amount, ingredients });
-  
+
       res.status(201).json(recipe);
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Internal server error' });
     }
   });
-  
+
 
 app.get('/recipes', async (req, res) => {
     try {
@@ -127,78 +127,24 @@ app.get('/recipes', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
-  
+
   app.post('/recipes/:id', async (req, res) => {
     try {
       const { name, image, description, amount, ingredients } = req.body;
       const { id } = req.params;
-  
+
       const recipe = await RecipeModel.findByIdAndUpdate(
         id,
         { name, image, description, amount, ingredients },
         { new: true }
       );
-  
+
       res.status(200).json(recipe);
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Internal server error' });
     }
   });
-  
-
-// Recipe data handling from Armand
-// **USED TO POPULATE DATABASE */
-// app.post('/recipe/create', async (req, res) => {
-//     const recipeData = [
-//         {
-//             name: "Invisibility",
-//             image: "https://i.ibb.co/8xJRDsJ/Potionof-Extended-Invisibility.webp",
-//             description: "go invisible",
-//             amount: 0,
-//             ingredients: [
-//                 {inventoryId: "641f543edb4e75408f45e0f9", amountNeeded: 1},
-//                 {inventoryId: "641f55c7db4e75408f45e0ff", amountNeeded: 1}
-//             ]
-//         },
-//         {
-//             name: "Magicka Increase",
-//             image: "https://i.ibb.co/0JtQnSx/Magicka.webp",
-//             description: "get magicka",
-//             amount: 0,
-//             ingredients: [
-//                 {inventoryId: "641f57b9db4e75408f45e10a", amountNeeded: 2},
-//                 {inventoryId: "641f5775db4e75408f45e107", amountNeeded: 1}
-//             ]
-//         }
-//     ]
-
-//     for(const recipe of recipeData){
-//         await RecipeModel.create(recipe)
-//     }
-
-//     res.send({success: true})
-// })
-
-// get my recipes from Armand
-// app.get('/recipes', async (req, res) => {
-//     const recipes = await RecipeModel.find().populate('ingredients.inventoryId').exec();
-
-//     //check if there are enough items to craft the recipe
-//     const recipesWithAvailability = recipes.map(async (recipe) => {
-//         const ingredients = recipe.ingredients;
-//         let craftable = true;
-
-//         for (const ingredient of ingredients!) {
-//             const inventory = await InventoryModel.findById(ingredient.inventoryId).exec()
-//             const amount = inventory!.amount
-//         }
-//     })
-
-//     res.send(recipes)
-// })
-
-//endpoint to craft the recipe
 
 
 //listener for the port

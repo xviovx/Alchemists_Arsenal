@@ -1,27 +1,107 @@
-# AlchemistsArsenal
+<br />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+![GitHub repo size](https://img.shields.io/github/repo-size/xviovx/Alchemists_Arsenal?color=B2FC98)
+![GitHub watchers](https://img.shields.io/github/watchers/xviovx/Alchemists_Arsenal?color=B2FC98)
+![GitHub language count](https://img.shields.io/github/languages/count/xviovx/Alchemists_Arsenal?color=B2FC98)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/xviovx/Alchemists_Arsenal?color=B2FC98)
+[![Instagram][instagram-shield]](https://www.instagram.com/kay_pharoah/)
 
-## Development server
+<!-- HEADER SECTION -->
+<h5 align="" style="padding:0;margin:0;">Kyle Pharoah</h5>
+<h5 align="" style="padding:0;margin:0;">200277</h5>
+<h6 align="">Interactive Development 300</h6>
+</br>
+<p align="">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  <div align="center">
+  <a href="https://github.com/xviovx/Alchemists_Arsenal">
+      <img src="readMeAssets/logo.png" alt="Logo" width="210" height="210">
+  </a>
+</div>
 
-## Code scaffolding
+  
+  <!-- <h3 align="center">Project Name</h3> -->
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  <p align="center">
+    A Skyrim ingredient tracker and potion crafting system.<br>
+      <!-- <a href="https://github.com/username/projectname"><strong>Explore the docs »</strong></a> -->
+   <br />
+   <br />
+   <a href="https://youtu.be/wjfqwpOnVKs">View Demo</a>
+    ·
+    <a href="https://github.com/xviovx/Alchemists_Arsenal/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/xviovx/Alchemists_Arsenal/issues">Request Feature</a>
+</p>
 
-## Build
+<!--PROJECT DESCRIPTION-->
+## About the Project
+<!-- header image of project -->
+<img src="readMeAssets/about.png" alt="Logo" width="600" height="350">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Project Description
 
-## Running unit tests
+An ingredient inventory management system and potion crafting application for the game Skyrim
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Built With
 
-## Running end-to-end tests
+* [Angular](https://angular.io/)
+* [Typescript](https://www.typescriptlang.org/)
+* [MongoDB](https://www.mongodb.com/)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Prerequisites
 
-## Further help
+You'll need to install Node.js and npm on your machine. You can download Node.js from the official website. npm comes bundled with Node.js, so when you install Node.js, npm will automatically be installed.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation
+
+Follow these steps to get this project running on your machine:
+
+1. **Clone the Repository** 
+
+    Run the following command in your terminal to clone the project:
+    ```sh
+    git clone https://github.com/xviovx/Alchemists_Arsenal.git
+    ```
+
+2. **Open the Project** 
+
+    Open VS Code, select `File | Open...` from the menu, navigate to the cloned directory, and press `Open`.
+
+<br>
+
+3. **Install Angular CLI** 
+    ```sh
+    npm install -g @angular/cli
+    ```
+
+4. **Install Mongoose** 
+    ```sh
+    npm install mongoose
+    ``` 
+    
+
+5. **Additional dependencies** 
+
+    Install any additional dependencies listed in the package.json file
+  
+    ```
+6. **Run the following commands in your terminal** 
+
+<img src="readMeAssets/run.png" alt="Logo" width="900" height="250">
+
+
+## Authors
+
+* **Kyle Pharoah** - [xviovx](https://github.com/xviovx)
+
+
+<!-- Refer to https://shields.io/ for more information and options about the shield links at the top of the ReadMe file -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/nameonlinkedin/
+[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&colorB=555
+[instagram-url]: https://www.instagram.com/instagram_handle/
+[behance-shield]: https://img.shields.io/badge/-Behance-black.svg?style=flat-square&logo=behance&colorB=555
+[behance-url]: https://www.behance.net/name-on-behance/
+
+

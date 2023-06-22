@@ -68,8 +68,6 @@ Follow these steps to get this project running on your machine:
 
     Open VS Code, select `File | Open...` from the menu, navigate to the cloned directory, and press `Open`.
 
-<br>
-
 3. **Install Angular CLI** 
     ```sh
     npm install -g @angular/cli
@@ -85,7 +83,6 @@ Follow these steps to get this project running on your machine:
 
     Install any additional dependencies listed in the package.json file
   
-    ```
 6. **Run the following commands in your terminal** 
 
 <img src="readMeAssets/run.png" alt="Logo" width="900" height="250">

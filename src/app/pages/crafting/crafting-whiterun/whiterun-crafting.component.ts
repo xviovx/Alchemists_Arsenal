@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../../recipe';
-import { RecipeService } from '../../services/recipe.service';
-import { Item } from '../../item';
+import { Recipe } from '../../../recipe';
+import { RecipeService } from '../../../services/recipe.service';
+import { Item } from '../../../item';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { PotionService } from 'src/app/services/potion.service';
-import { Potion } from '../../potion';
+import { Potion } from '../../../potion';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { map } from 'rxjs';
 import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-crafting',
-  templateUrl: './crafting.component.html',
-  styleUrls: ['./crafting.component.css'],
+  templateUrl: './whiterun-crafting.component.html',
+  styleUrls: ['./whiterun-crafting.component.css'],
   animations: [
     trigger('scaleUpAndFadeIn', [
       state('void', style({ transform: 'scale(0)', opacity: 0 })),
@@ -27,7 +27,7 @@ import { forkJoin } from 'rxjs';
   ]
 })
 
-export class CraftingComponent implements OnInit {
+export class WhiterunCraftingComponent implements OnInit {
   recipes: Recipe[] = [];
   items: Item[] = [];
   showInsufficientIngredientsModal = false;
@@ -40,10 +40,14 @@ export class CraftingComponent implements OnInit {
       recipes: this.recipeService.getAllRecipes(),
       items: this.inventoryService.getAllItems().pipe(
         map(items => items.filter(item => item.location === 'Whiterun'))
+      ),
+      potions: this.potionService.getAllPotions().pipe(
+        map(potions => potions.filter(potion => potion.location === 'Whiterun'))
       )
-    }).subscribe(({recipes, items}) => {
-      this.recipes = recipes;
+    }).subscribe(({recipes, items, potions}) => {
       this.items = items;
+  
+      this.recipes = recipes;
       this.recipes.forEach(recipe => {
         recipe.ingredients.forEach(ingredient => {
           const matchedItem = this.items.find(i => i._id === ingredient.inventoryId._id);
@@ -55,13 +59,16 @@ export class CraftingComponent implements OnInit {
             ingredient.displayQuantity = 0;
           }
         });
+  
+        recipe.amountInWhiterun = potions
+          .filter(potion => potion.name === recipe.name)
+          .reduce((total, potion) => total + potion.quantity, 0);
       });
     },
     (error) => {
       console.log(error)
     });
-  }  
-  
+  }    
 
   craft(recipe: Recipe) {
     const ingredients = recipe.ingredients;

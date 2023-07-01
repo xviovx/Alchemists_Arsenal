@@ -26,7 +26,6 @@ import { MatDialog } from '@angular/material/dialog';
 //components
 import { HomeComponent } from './pages/home/home.component';
 import { InventoryComponent } from './pages/inventory/inventory.component';
-import { CraftingComponent } from './pages/crafting/crafting.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -41,13 +40,15 @@ import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/da
 import { WhiterunPotionsComponent } from './pages/location_potions/whiterun-potions/whiterun-potions.component';
 import { SolitudePotionsComponent } from './pages/location_potions/solitude-potions/solitude-potions.component';
 import { DawnstarPotionsComponent } from './pages/location_potions/dawnstar-potions/dawnstar-potions.component';
+import { WhiterunCraftingComponent } from './pages/crafting/crafting-whiterun/whiterun-crafting.component';
+import { SolitudeCraftingComponent } from './pages/crafting/crafting-solitude/solitude-crafting.component';
+import { DawnstarCraftingComponent } from './pages/crafting/crafting-dawnstar/dawnstar-crafting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InventoryComponent,
-    CraftingComponent,
     LocationsComponent,
     HelpComponent,
     NotFoundComponent,
@@ -60,7 +61,10 @@ import { DawnstarPotionsComponent } from './pages/location_potions/dawnstar-poti
     FilterPipe,
     WhiterunPotionsComponent,
     SolitudePotionsComponent,
-    DawnstarPotionsComponent
+    DawnstarPotionsComponent,
+    WhiterunCraftingComponent,
+    SolitudeCraftingComponent,
+    DawnstarCraftingComponent
   ],
   imports: [
     BrowserModule,

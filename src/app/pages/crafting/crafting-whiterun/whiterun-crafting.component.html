@@ -1,0 +1,46 @@
+<div class="crafting">
+  <div class="header">
+    <button mat-raised-button class="whiterun">Whiterun</button>
+    <button mat-raised-button class="solitude" routerLink="/craftingSolitude">Solitude</button>
+    <button mat-raised-button class="dawnstar" routerLink="/craftingDawnstar">Dawnstar</button>
+  </div>
+
+  <div *ngFor="let recipe of recipes" class="crafting-container" [@scaleUpAndFadeIn]="true">
+    <div class="potion-image">
+      <img [src]="recipe.image" alt="Potion Image">
+      <span>{{ recipe.amountInWhiterun }}</span>
+    </div>
+    <div class="crafting-details">
+      <div class="ingredient-list">
+        <div *ngFor="let ingredient of recipe.ingredients" class="ingredient-item">
+          <img [src]=" ingredient.inventoryId.image " width="50px" height="50px" alt="Ingredient 1">
+          <span [ngClass]="{ 'quantity-indicator': true, 'zero-quantity': ingredient.displayQuantity === 0 }">x{{ ingredient.displayQuantity }}</span>
+        </div>
+      </div>
+      <div class="crafting-info">
+        <div class="potion-title">{{ recipe.name }}</div>
+        <button mat-raised-button color="primary" (click)="craft(recipe)" class="craft-btn">Craft</button>
+      </div>
+    </div>
+  </div>  
+
+  <div class="modal" *ngIf="showInsufficientIngredientsModal">
+    <div class="modal-content">
+      <p>Insufficient ingredients in Whiterun!</p>
+      <div class="button-container">
+        <button mat-raised-button color="secondary" (click)="closeInsufficientIngredientsModal()">Ok</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modalSuccess" *ngIf="showSuccessModal">
+    <div class="modal-content-success">
+      <p>Potion crafted successfully!</p>
+      <h4>Added to Whiterun</h4>
+      <div class="button-container">
+        <button mat-raised-button color="secondary" (click)="closeSuccessModal()">Ok</button>
+      </div>
+    </div>
+  </div>
+  
+</div>

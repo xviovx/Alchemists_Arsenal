@@ -1,0 +1,280 @@
+.crafting{
+  padding: 2%;
+  overflow: auto;
+}
+
+.dropdown{
+  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  color: #ACFFC3;
+  background: #2a2a2a;
+  padding: 17px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 15px;
+  border: none;
+}
+
+.dropdown:hover{
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.dropdown::-ms-expand,
+.dropdown::-webkit-inner-spin-button,
+.dropdown::-webkit-outer-spin-button {
+    display: none;
+}
+
+.dropdown.selected {
+  color: #2a2b29;
+  background-color: #ACFFC3;
+}
+
+/*********cndjosnvfsdubsf9=f8fs97fsv*/
+
+.crafting-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 200px;
+  width: 48%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px;
+  border: 2px solid #E1FFE9;
+  float: left;
+  margin-right: 20px;
+  background: linear-gradient(to bottom right, #0f110f99, rgba(79, 167, 100, 0.278));
+}
+
+.craft-btn{
+  width: 100px;
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 15px;
+  border: none;
+  display: none;
+}
+
+.crafting-container:hover{
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px #4FA763;
+  background-color: #3c453d;
+  background: linear-gradient(to bottom right, #0f110f, #4FA763);
+}
+
+.crafting-container:hover .potion-title{
+  font-weight: bold;
+}
+
+.crafting-container:hover .craft-btn{
+  display: inline-flex;
+}
+
+.potion-image {
+  width: 25%;
+  height: 75%;
+  margin-right: 70px;
+  padding-left: 15px;
+}
+
+.potion-image img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.crafting-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 70%;
+}
+
+.ingredient-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50%;
+  margin-bottom: 8px;
+}
+
+.ingredient-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 33.33%;
+}
+
+
+.ingredient-item img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.quantity-indicator {
+  position: absolute;
+  /* background-color: #A6FFBF; */
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  bottom: -10px;
+  margin-left: 70px;
+}
+
+.crafting-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+  padding: 8px;
+  /* border-top: 1px solid #A6FFBF; */
+}
+
+mat-button {
+  margin-right: 25px;
+}
+
+.potion-title {
+  font-size: 17px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1200px) {
+  .crafting-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.zero-quantity {
+  color: red;
+}
+
+/*new styles for buttons*/
+.solitude, .whiterun{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 15px;
+}
+
+.dawnstar{
+  color: #2a2b29;
+  background: #ACFFC3;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal p {
+  font-size: 16px;
+  font-style: italic;
+  padding-top: 16px;
+}
+
+.modal button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-bottom: 10px;
+}
+
+.modal button:hover {
+  background-color: rgba(255, 255, 255, 0.681);
+  color: black;
+  font-weight: bold;
+}
+
+.modal-content {
+  background: radial-gradient(#360e0e, #570101);
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  width: 25%;
+  height: 16%;
+  display: flex;
+  flex-direction: column; /* make the flex direction vertical */
+  justify-content: space-between; /* distribute space evenly between the children */
+  align-items: center;
+  text-align: center;
+}
+
+.button-container {
+  width: 100%; /* make the button container full width */
+  display: flex;
+  justify-content: center; /* center the button horizontally */
+}
+
+.modalSuccess{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-success{
+  background: radial-gradient(#00260a, #a4efa9);
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  width: 25%;
+  height: 20%;
+  display: flex;
+  flex-direction: column; /* make the flex direction vertical */
+  justify-content: space-between; /* distribute space evenly between the children */
+  align-items: center;
+  text-align: center;
+}
+
+.modalSuccess p {
+  font-size: 16px;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+.modalSuccess h4 {
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.modalSuccess button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-bottom: 10px;
+}
+
+
+
+

@@ -6,6 +6,9 @@ export interface Recipe {
   image: string;
   description: string;
   amount: number;
+  amountInDawnstar?: number;
+  amountInSolitude?: number;
+  amountInWhiterun?: number;
   ingredients: {
     inventoryId: Item;
     displayQuantity?: number;

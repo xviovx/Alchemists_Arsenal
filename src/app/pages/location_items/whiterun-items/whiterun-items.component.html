@@ -1,6 +1,7 @@
 <div class="whiterun_items">
-  <h1>{{ getWhiterunItemCount() }} items in Whiterun</h1>
-
+  <button mat-raised-button class="inv_bt">Ingredients</button>
+  <button mat-raised-button class="pot_bt" routerLink="/whiterun_potions">Potions</button>
+  <span>{{ getWhiterunItemCount() }} ingredients in Whiterun</span>
   <div class="card-container">
     <mat-card *ngFor="let ingredient of ingredients" class="item-card"
       (mouseover)="ingredient.cardHovered = true"

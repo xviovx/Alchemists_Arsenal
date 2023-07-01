@@ -1,8 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { NgClass } from '@angular/common';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../recipe';
 import { RecipeService } from '../../services/recipe.service';
 import { Item } from '../../item';
@@ -10,6 +6,8 @@ import { InventoryService } from 'src/app/services/inventory.service';
 import { PotionService } from 'src/app/services/potion.service';
 import { Potion } from '../../potion';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { map } from 'rxjs';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-crafting',
@@ -31,51 +29,60 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 
 export class CraftingComponent implements OnInit {
   recipes: Recipe[] = [];
-  // selectedLocation: string;
   items: Item[] = [];
+  showInsufficientIngredientsModal = false;
+  showSuccessModal = false;
 
   constructor(private recipeService: RecipeService, private inventoryService: InventoryService, private potionService: PotionService) {}
 
   ngOnInit() {
-    this.recipeService.getAllRecipes()
-      .subscribe(
-        (recipes: Recipe[]) => {
-          this.recipes = recipes;
-        },
-        (error) => {
-          console.log(error)
-        }
-      );
-
-    this.inventoryService.getAllItems()
-      .subscribe(
-        (items: Item[]) => {
-          this.items = items;
-        },
-        (error) => {
-          console.log(error)
-        }
-      );
-  }
+    forkJoin({
+      recipes: this.recipeService.getAllRecipes(),
+      items: this.inventoryService.getAllItems().pipe(
+        map(items => items.filter(item => item.location === 'Whiterun'))
+      )
+    }).subscribe(({recipes, items}) => {
+      this.recipes = recipes;
+      this.items = items;
+      this.recipes.forEach(recipe => {
+        recipe.ingredients.forEach(ingredient => {
+          const matchedItem = this.items.find(i => i._id === ingredient.inventoryId._id);
+          if(matchedItem) {
+            ingredient.inventoryId = matchedItem;
+            ingredient.displayQuantity = matchedItem.quantity;
+          } else {
+            // No matched item found, set displayQuantity to 0
+            ingredient.displayQuantity = 0;
+          }
+        });
+      });
+    },
+    (error) => {
+      console.log(error)
+    });
+  }  
+  
 
   craft(recipe: Recipe) {
     const ingredients = recipe.ingredients;
     if (ingredients.every(ingredient => {
-      const item = ingredient.inventoryId;
+      const item = this.items.find(i => i._id === ingredient.inventoryId._id && i.location === 'Whiterun');
       return item && item.quantity >= ingredient.amountNeeded;
     })) {
       ingredients.forEach(ingredient => {
-        const item = ingredient.inventoryId;
-        const newQuantity = item.quantity - ingredient.amountNeeded;
-        item.quantity = newQuantity; // Update quantity in the frontend
-        this.inventoryService.updateInventory(item._id, newQuantity).subscribe(
-          (updatedItem: Item) => {
-            console.log('Inventory item updated:', updatedItem);
-          },
-          (error) => {
-            console.log('Error updating inventory item:', error);
-          }
-        );
+        const item = this.items.find(i => i._id === ingredient.inventoryId._id && i.location === 'Whiterun');
+        if (item && item._id) {  // Check if item and item._id is defined
+          const newQuantity = item.quantity - ingredient.amountNeeded;
+          item.quantity = newQuantity;
+          this.inventoryService.updateInventory(item._id, newQuantity).subscribe(
+            (updatedItem: Item) => {
+              console.log('Inventory item updated:', updatedItem);
+            },
+            (error) => {
+              console.log('Error updating inventory item:', error);
+            }
+          );
+        }
       });
       recipe.amount++;
       this.recipeService.updateRecipe(recipe).subscribe(
@@ -86,13 +93,13 @@ export class CraftingComponent implements OnInit {
             description: recipe.description,
             quantity: 1,
             image: recipe.image,
-            location: "inventory",
+            location: "Whiterun",
             cardHovered: false
           };
           this.potionService.addPotion(newPotion).subscribe(
             (createdOrUpdatedPotion: Potion) => {
               console.log('Potion created/updated:', createdOrUpdatedPotion);
-              alert('Crafted potion successfully!');
+              this.showSuccessModal = true;
             },
             (error) => {
               console.log('Error creating/updating potion:', error);
@@ -106,25 +113,16 @@ export class CraftingComponent implements OnInit {
         }
       );
     } else {
-      alert('Insufficient ingredients to craft potion!');
+      this.showInsufficientIngredientsModal = true;
     }
+}
+
+
+  closeInsufficientIngredientsModal() {
+    this.showInsufficientIngredientsModal = false;
   }
 
-
-
-
-
-
-  // onLocationSelect(event: Event): void {
-  //   const value = (event.target as HTMLSelectElement).value;
-  //   const dropdown = document.getElementById('locationDropdown');
-  //   if (dropdown?.classList) {
-  //     if (value !== '') {
-  //       dropdown.classList.add('selected');
-  //     } else {
-  //       dropdown.classList.remove('selected');
-  //     }
-  //   }
-  //   this.selectedLocation = value;
-  // }
+  closeSuccessModal(){
+    this.showSuccessModal = false;
+  }
 }

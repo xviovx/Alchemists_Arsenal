@@ -106,9 +106,9 @@ app.delete("/recipes/:id", async (req, res) => {
 //USE THESE ONES
 app.post('/recipes', async (req, res) => {
     try {
-      const { name, image, description, amount, ingredients } = req.body;
+      const { name, image, description, amount, ingredients, location } = req.body;
 
-      const recipe = await RecipeModel.create({ name, image, description, amount, ingredients });
+      const recipe = await RecipeModel.create({ name, image, description, amount, ingredients, location });
 
       res.status(201).json(recipe);
     } catch (err) {
@@ -130,12 +130,12 @@ app.get('/recipes', async (req, res) => {
 
   app.post('/recipes/:id', async (req, res) => {
     try {
-      const { name, image, description, amount, ingredients } = req.body;
+      const { name, image, description, amount, ingredients, location } = req.body;
       const { id } = req.params;
 
       const recipe = await RecipeModel.findByIdAndUpdate(
         id,
-        { name, image, description, amount, ingredients },
+        { name, image, description, amount, ingredients, location },
         { new: true }
       );
 

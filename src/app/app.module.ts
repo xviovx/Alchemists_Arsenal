@@ -38,6 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { WhiterunItemsComponent } from './pages/location_items/whiterun-items/whiterun-items.component';
 import { SolitudeItemsComponent } from './pages/location_items/solitude-items/solitude-items.component';
 import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/dawnstar-items.component';
+import { WhiterunPotionsComponent } from './pages/location_potions/whiterun-potions/whiterun-potions.component';
+import { SolitudePotionsComponent } from './pages/location_potions/solitude-potions/solitude-potions.component';
+import { DawnstarPotionsComponent } from './pages/location_potions/dawnstar-potions/dawnstar-potions.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/da
     WhiterunItemsComponent,
     SolitudeItemsComponent,
     DawnstarItemsComponent,
-    FilterPipe
+    FilterPipe,
+    WhiterunPotionsComponent,
+    SolitudePotionsComponent,
+    DawnstarPotionsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,7 @@ import { DawnstarItemsComponent } from './pages/location_items/dawnstar-items/da
     MatSelectModule,
     MatOptionModule,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent] // the first initial component

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InventoryService } from '../../../services/inventory.service';
 import { Item } from "../../../item";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-whiterun-items',

@@ -1,0 +1,14 @@
+<div class="solitude_items">
+  <button mat-raised-button class="inv_bt" routerLink="/solitude_items">Ingredients</button>
+  <button mat-raised-button class="pot_bt" routerLink="/solitude_potions">Potions</button>
+  <span>{{ getSolitudePotionCount() }} potions in Solitude</span>
+  <div class="card-container">
+    <mat-card *ngFor="let potion of potions" class="item-card"
+      (mouseover)="potion.cardHovered = true"
+      (mouseleave)="potion.cardHovered = false">
+      <img mat-card-image [ngClass]="{'image-hovered': potion.cardHovered}" src="{{potion.image}}">
+      <div class="item-quantity" [ngClass]="{'red-text': potion.quantity === 0}">x{{potion.quantity}}</div>
+      <!-- <div class="edit-icon" *ngIf="potion.cardHovered"><mat-icon>edit</mat-icon></div> -->
+    </mat-card>
+  </div>
+</div>

@@ -161,3 +161,120 @@ mat-button {
   color: red;
 }
 
+/*new styles for buttons*/
+.solitude, .dawnstar{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 15px;
+}
+
+.whiterun{
+  color: #2a2b29;
+  background: #ACFFC3;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal p {
+  font-size: 16px;
+  font-style: italic;
+  padding-top: 16px;
+}
+
+.modal button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-bottom: 10px;
+}
+
+.modal button:hover {
+  background-color: rgba(255, 255, 255, 0.681);
+  color: black;
+  font-weight: bold;
+}
+
+.modal-content {
+  background: radial-gradient(#360e0e, #570101);
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  width: 25%;
+  height: 16%;
+  display: flex;
+  flex-direction: column; /* make the flex direction vertical */
+  justify-content: space-between; /* distribute space evenly between the children */
+  align-items: center;
+  text-align: center;
+}
+
+.button-container {
+  width: 100%; /* make the button container full width */
+  display: flex;
+  justify-content: center; /* center the button horizontally */
+}
+
+.modalSuccess{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content-success{
+  background: radial-gradient(#00260a, #a4efa9);
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  width: 25%;
+  height: 20%;
+  display: flex;
+  flex-direction: column; /* make the flex direction vertical */
+  justify-content: space-between; /* distribute space evenly between the children */
+  align-items: center;
+  text-align: center;
+}
+
+.modalSuccess p {
+  font-size: 16px;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+.modalSuccess h4 {
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.modalSuccess button {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-bottom: 10px;
+}
+
+
+
+

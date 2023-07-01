@@ -1,6 +1,7 @@
 <div class="dawnstar_items">
-  <h1>{{ getDawnstarItemCount() }} items in Dawnstar</h1>
-
+  <button mat-raised-button class="inv_bt">Ingredients</button>
+  <button mat-raised-button class="pot_bt" routerLink="/dawnstar_potions">Potions</button>
+  <span>{{ getDawnstarItemCount() }} ingredients in Dawnstar</span>
   <div class="card-container">
     <mat-card *ngFor="let ingredient of ingredients" class="item-card"
       (mouseover)="ingredient.cardHovered = true"
@@ -10,4 +11,5 @@
       <!-- <div class="edit-icon" *ngIf="ingredient.cardHovered"><mat-icon>edit</mat-icon></div> -->
     </mat-card>
   </div>
+
 </div>

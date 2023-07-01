@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" [@scaleUpAndFadeIn]="true">
     <mat-card *ngFor="let potion of potions | filter: searchText" class="item-card" (mouseover)="potion.cardHovered = true"
   (mouseleave)="potion.cardHovered = false">
     <img mat-card-image [ngClass]="{'image-hovered': potion.cardHovered}" src="{{potion.image}}">
@@ -29,7 +29,10 @@
       <hr>
       <div class="modal-body">
         <div class="form-group">
-          <p>{{ selectedPotion.description }}</p>
+          <span><b>Description: </b></span><span>{{ selectedPotion.description }}</span>
+          <br>
+          <br>
+          <span><b>Location: </b></span><span>{{ selectedPotion.location }}</span>
         </div>
       </div>
     </div>

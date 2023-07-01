@@ -3,12 +3,39 @@
   overflow: auto;
 }
 
-h1{
+button{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+  margin-bottom: 10px;
+}
+
+button:hover{
+  font-weight: 800;
+}
+
+.inv_bt{
+  color: #2a2b29;
+  background: #ACFFC3;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+.pot_bt{
+  color: #ACFFC3;
+}
+
+span{
   color: #ACFFC3;
   font-family: 'Roboto';
   font-style: italic;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .card-container {

@@ -93,6 +93,7 @@ export class InventoryComponent implements OnInit{
       this.showModal = true;
       this.selectedIngredient = ingredient;
       this.selectedQuantity = ingredient.quantity;
+      this.selectedLocation = ingredient.location;
     }
   }
 

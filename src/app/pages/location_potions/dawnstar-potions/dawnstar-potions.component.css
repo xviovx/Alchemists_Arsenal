@@ -1,0 +1,81 @@
+.dawnstar_items{
+  padding: 2%;
+  overflow: auto;
+}
+
+button{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+  margin-bottom: 10px;
+}
+
+button:hover{
+  font-weight: 800;
+}
+
+.inv_bt{
+  color: #ACFFC3;
+  background: #2a2b29;
+  padding: 25px;
+  border-radius: 25px;
+  font-family: 'Ropa Sans', sans-serif;
+  margin-right: 25px;
+}
+
+.pot_bt{
+  color: #2a2b29;
+  background: #ACFFC3;
+}
+
+span{
+  color: #ACFFC3;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-card {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  background-color: #000;
+  border: 2px solid #fff;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.item-card:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: #fff;
+  cursor: pointer;
+  box-shadow: 3px 3px 8px #fff;
+}
+
+.item-card img.image-hovered {
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  /* transition: opacity 0.3s ease-in-out; */
+}
+
+.item-quantity {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 11px;
+}
+
+.red-text{
+  color: red;
+}

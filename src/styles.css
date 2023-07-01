@@ -39,7 +39,7 @@ body{
 
 .locations{
   height: 100%;
-  background-image: url('assets/locations_bg_two.png');
+  background-image: url('assets/locations_bg.png');
   background-size: cover;
   background-position: center;
   border-radius: 5px;
@@ -71,7 +71,7 @@ body{
 
 .whiterun_items{
   height: 100%;
-  background-image: url('assets/locations/Whiterun_bg.png');
+  background-image: url('assets/locations/Whiterun_bg (2).jpg');
   background-size: cover;
   background-position: center;
   border-radius: 5px;
@@ -79,7 +79,7 @@ body{
 
 .solitude_items{
   height: 100%;
-  background-image: url('assets/locations/Solitude_bg.png');
+  background-image: url('assets/locations/Solitude_bg.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 5px;

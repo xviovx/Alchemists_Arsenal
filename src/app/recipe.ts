@@ -1,3 +1,5 @@
+import { Item } from "./item";
+
 export interface Recipe {
   _id: string;
   name: string;
@@ -5,15 +7,8 @@ export interface Recipe {
   description: string;
   amount: number;
   ingredients: {
-    inventoryId: {
-      _id: string;
-      name: string;
-      location: string;
-      quantity: number;
-      image: string;
-    },
+    inventoryId: Item;
+    displayQuantity?: number;
     amountNeeded: number;
   }[];
 }
-
-

@@ -25,6 +25,59 @@ button:hover{
   overflow: auto;
 }
 
+.whiterun_icon, .dawnstar_icon, .solitude_icon {
+  transition: all 0.3s ease-in-out;
+}
+
+.whiterun_icon{
+  margin-left: 580px;
+  margin-top: 290px;
+  opacity: 0.7;
+  position: absolute; 
+  width: 50px; 
+  height: 70px;
+}
+
+.whiterun_icon:hover{
+  cursor: pointer;
+  opacity: 1;
+  width: 65px; 
+  height: 85px;
+}
+
+.dawnstar_icon{
+  margin-left: 640px;
+  margin-top: 50px;
+  opacity: 0.7;
+  position: absolute; 
+  width: 50px; 
+  height: 70px;
+}
+
+.dawnstar_icon:hover{
+  cursor: pointer;
+  opacity: 1;
+  width: 63px; 
+  height: 82px;
+}
+
+.solitude_icon{
+  margin-left: 200px;
+  margin-top: 100px;
+  opacity: 0.7;
+  position: absolute; 
+  width: 50px; 
+  height: 70px;
+}
+
+.solitude_icon:hover{
+  cursor: pointer;
+  opacity: 1;
+  width: 60px; 
+  height: 80px;
+}
+
+
 
 
 

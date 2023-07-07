@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatOptionModule} from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 //components
 import { HomeComponent } from './pages/home/home.component';
@@ -85,6 +86,7 @@ import { DawnstarCraftingComponent } from './pages/crafting/crafting-dawnstar/da
     MatOptionModule,
     FormsModule,
     CommonModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent] // the first initial component

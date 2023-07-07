@@ -3,6 +3,9 @@
     <button mat-raised-button class="whiterun">Whiterun</button>
     <button mat-raised-button class="solitude" routerLink="/craftingSolitude">Solitude</button>
     <button mat-raised-button class="dawnstar" routerLink="/craftingDawnstar">Dawnstar</button>
+    <div class="tooltip-icon">
+      <mat-icon matTooltip="Crafting a potion requires two of each ingredient 🪄">info</mat-icon>
+    </div>
   </div>
 
   <div *ngFor="let recipe of recipes" class="crafting-container" [@scaleUpAndFadeIn]="true">

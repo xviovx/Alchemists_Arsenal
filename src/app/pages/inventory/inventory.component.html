@@ -50,4 +50,13 @@
     </div>
   </div>
 
+  <div class="modalSuccess" *ngIf="showSuccessModal">
+    <div class="modal-content-success">
+      <p>Potion info updated!</p>
+      <div class="button-container">
+        <button mat-raised-button color="secondary" (click)="closeSuccessModal()">Ok</button>
+      </div>
+    </div>
+  </div>
+
 </div>

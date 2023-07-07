@@ -27,21 +27,16 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 export class InventoryComponent implements OnInit{
   isLoaded = false;
   buttonState = 'hidden';
-
-  ngAfterViewInit() {
-    this.isLoaded = true;
-    this.buttonState = 'visible';
-  }
-
   ingredients: Item[] = [];
   filteredIngredients: Item[] = [];
-
   locationOptions = ['Whiterun', 'Solitude', 'Dawnstar'];
-
   showModal = false;
+  showSuccessModal = false;
   selectedIngredient: { _id?: string, name: string, location: string, quantity: number, image: string, cardHovered: boolean } = { _id: '', name: '', location: '', quantity: 0, image: '', cardHovered: false};
   selectedQuantity = 0;
   selectedLocation = '';
+  newAmountPlaceholder: number = 0;
+  searchText: string = '';
 
   constructor(private inventoryService: InventoryService) {}
 
@@ -57,7 +52,10 @@ export class InventoryComponent implements OnInit{
     );
   }
 
-  newAmountPlaceholder: number = 0
+  ngAfterViewInit() {
+    this.isLoaded = true;
+    this.buttonState = 'visible';
+  }
 
   detectAmountChange(e: any) {
     this.newAmountPlaceholder = +e.target.value;
@@ -75,17 +73,18 @@ export class InventoryComponent implements OnInit{
       return;
     }
 
-    // Call InventoryService to update ingredient quantity and location
     this.inventoryService.updateItem(this.selectedIngredient._id, this.selectedQuantity, this.selectedLocation)
       .subscribe(updatedIngredient => {
-        // Update ingredient quantity and location in frontend
         const index = this.ingredients.findIndex(ingredient => ingredient._id === updatedIngredient._id);
         this.ingredients[index].quantity = updatedIngredient.quantity;
         this.ingredients[index].location = updatedIngredient.location;
-
-        // Close modal
         this.showModal = false;
+        this.showSuccessModal = true;
       });
+  }
+
+  closeSuccessModal() {
+    this.showSuccessModal = false;
   }
 
   editItem(ingredient: Item) {
@@ -105,18 +104,9 @@ export class InventoryComponent implements OnInit{
     this.selectedQuantity = quantity;
   }
 
-  // filterIngredients() {
-  //   this.filteredIngredients = this.ingredients.filter((ingredient) => {
-  //     return ingredient.name.toLowerCase().includes(this.searchText.toLowerCase());
-  //   });
-  // }
-
-  searchText: string = '';
-
   filterIngredients() {
     return this.ingredients.filter((ingredient) => {
       return ingredient.name.toLowerCase().includes(this.searchText.toLowerCase());
     });
   }
-
 }

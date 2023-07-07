@@ -68,7 +68,6 @@ export class SolitudeCraftingComponent implements OnInit {
       console.log(error)
     });
   }  
-  
 
   craft(recipe: Recipe) {
     const ingredients = recipe.ingredients;
@@ -78,16 +77,13 @@ export class SolitudeCraftingComponent implements OnInit {
     })) {
       ingredients.forEach(ingredient => {
         const item = this.items.find(i => i._id === ingredient.inventoryId._id && i.location === 'Solitude');
-        if (item && item._id) {  // Check if item and item._id is defined
+        if (item && item._id) {
           const newQuantity = item.quantity - ingredient.amountNeeded;
           item.quantity = newQuantity;
+          ingredient.displayQuantity = newQuantity; 
           this.inventoryService.updateInventory(item._id, newQuantity).subscribe(
-            (updatedItem: Item) => {
-              console.log('Inventory item updated:', updatedItem);
-            },
-            (error) => {
-              console.log('Error updating inventory item:', error);
-            }
+            (updatedItem: Item) => console.log('Inventory item updated:', updatedItem),
+            (error) => console.log('Error updating inventory item:', error)
           );
         }
       });
@@ -122,8 +118,7 @@ export class SolitudeCraftingComponent implements OnInit {
     } else {
       this.showInsufficientIngredientsModal = true;
     }
-}
-
+  }  
 
   closeInsufficientIngredientsModal() {
     this.showInsufficientIngredientsModal = false;

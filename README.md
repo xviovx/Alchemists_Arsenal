@@ -37,7 +37,7 @@
 <!--PROJECT DESCRIPTION-->
 ## About the Project
 <!-- header image of project -->
-<img src="readMeAssets/about.png" alt="Logo" width="600" height="350">
+![About](readMeAssets/about.png)
 
 ### Project Description
 
@@ -85,7 +85,17 @@ Follow these steps to get this project running on your machine:
   
 6. **Run the following commands in your terminal** 
 
-<img src="readMeAssets/run.png" alt="Logo" width="900" height="250">
+    In the src directory:
+
+    ```sh
+    ng serve
+    ```
+
+    In the aa-server directory:
+    
+    ```sh
+    npm run dev
+    ```
 
 
 ## Authors
